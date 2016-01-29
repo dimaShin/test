@@ -1,0 +1,18 @@
+ul.user-filter {
+  padding: 0;
+}
+
+ul.user-filter>li {
+  list-style: none;
+}
+
+.user-filter > * {
+  float: left;
+}
+.user-filter li:not(:last-child) a:after {
+  content: '|';
+}
+.user-filter li.active a {
+  cursor: not-allowed;
+  color: grey;
+}

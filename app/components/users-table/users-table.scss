@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+}
+
+.table>tbody>tr:nth-child(even) {
+  background-color: rgba(175, 175, 200, .4);
+}
+
+.table>thead {
+  background-color: rgba(175, 175, 200, .6);
+}
+
+.table>thead th {
+  padding: 10px;
+}
+
+
+.column-content-center {
+  text-align: center;
+}
+.column-content-right {
+  text-align: right;
+}
+.column-content-left {
+  text-align: left;
+}

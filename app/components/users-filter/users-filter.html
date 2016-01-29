@@ -1,0 +1,8 @@
+<ul class="user-filter">
+  <li ng-repeat="role in UFtCtrl.ROLES track by role.key"
+      ng-class="{active: UFtCtrl.isActive(role.key)}">
+    <a ng-href="/{{role.key}}"
+       ng-bind="role.title">
+    </a>
+  </li>
+</ul>
