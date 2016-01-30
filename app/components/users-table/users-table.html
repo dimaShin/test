@@ -1,12 +1,19 @@
 <table class="table">
   <thead>
-  <th class="column-content-left">Name</th>
+  <th ng-class="{active: UTCtrl.order.by === 'name'}"
+      ng-click="UTCtrl.orderBy('name')"
+      class="column-content-left pointer">
+    Name
+  </th>
   <th ng-repeat="role in UTCtrl.ROLES track by role.key"
+      ng-class="{active: UTCtrl.order.by === 'roles.' + role.key}"
+      ng-click="UTCtrl.orderBy('roles.' + role.key)"
+      class="pointer"
       ng-bind="role.title"></th>
   <th></th>
   </thead>
   <tbody>
-  <tr ng-repeat="user in UTCtrl.users | uFilter track by user.id">
+  <tr ng-repeat="user in UTCtrl.users|uFilter|orderBy:UTCtrl.order.by:UTCtrl.order.reverse track by user.id">
     <td ng-bind="user.name"></td>
     <td ng-repeat="(role, value) in user.roles track by role"
         class="column-content-center">

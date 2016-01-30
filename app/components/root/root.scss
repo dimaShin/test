@@ -30,3 +30,7 @@ $sidebar-width: 200px;
 .view-container {
   width: calc(100% - #{$sidebar-width});
 }
+
+.pointer {
+  cursor: pointer;
+}
