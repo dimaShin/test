@@ -7,13 +7,13 @@ class UserFilter {
   constructor ($injector) {
     const ROLES = $injector.get('ROLES');
 
+    this.$rootScope = $injector.get('$rootScope');
+
     this._filter = {};
 
     _.forEach(ROLES, role => {
       this._filter[role.key] = false;
     });
-
-    this.callbacks = {};
 
   }
 
@@ -23,7 +23,7 @@ class UserFilter {
 
   setOptions (filterState) {
     angular.merge(this._filter, filterState);
-    _.forEach(this.callbacks, callback => callback());
+    this._broadcast('update');
   }
 
   setOption (key, value, theOnly) {
@@ -39,15 +39,21 @@ class UserFilter {
 
     this._filter[key] = !!value;
 
-    _.forEach(this.callbacks, callback => callback());
+    this._broadcast('update');
   }
 
-  onUpdate (listener, callback) {
-    this.callbacks[listener] = callback;
+  setAll (state) {
+    "use strict";
+    _.keys(this._filter).map(role => {
+      this._filter[role] = state;
+    });
+
+    this._broadcast('update');
   }
 
-  destroy (listener) {
-    delete this.callbacks[listener];
+  _broadcast (action) {
+    "use strict";
+    this.$rootScope.$broadcast('users-filter:' + action);
   }
 }
 

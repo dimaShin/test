@@ -10,7 +10,12 @@ export default angular.module('test.config.routes', [ngRoute])
     $routeProvider.otherwise('/home');
     $routeProvider
       .when('/home', {
-        template: '<test-home />'
+        template: '<test-home />',
+        resolve: {
+          filter: ['UsersFilter', (UsersFilter) => {
+            return UsersFilter.setAll(false);
+          }]
+        }
       });
 
     _.forEach(ROLES, role => {

@@ -8,20 +8,6 @@ class UsersTableCtrl {
     this.UsersFilter = $injector.get('UsersFilter');
     this.ROLES = $injector.get('ROLES');
     this.users = this.Users.get(this.UsersFilter.get());
-
-    this.UsersFilter.onUpdate(controller, () => {
-      console.log('update');
-      this._updateUsers();
-    });
-    $scope.$on('destroy', this.UsersFilter.destroy.bind(this, controller));
-  }
-
-  _updateUsers() {
-    const filter = this.UsersFilter.get();
-    this.users = this.Users.get()
-      .filter(user => {
-        return true;
-      });
   }
 
   saveUsers() {

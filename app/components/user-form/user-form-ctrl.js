@@ -24,19 +24,16 @@ class UserFromCtrl {
   }
 
   _watchFilter ($scope) {
-    this.UsersFilter.onUpdate(controller, () => {
+    $scope.$on('user-filter:update', () => {
       this.user.roles = this.UsersFilter.get();
     });
-
-    $scope.$on('destroy', this.UsersFilter.destroy.bind(this, controller));
   }
 
   onSubmit () {
     this.Users.add(this.user);
 
     const route = this.$location.path().substr(1);
-
-    if (!this.user.roles[route]) {
+    if (route !== 'home' && !this.user.roles[route]) {
       this.UsersFilter.setOption(route, false);
       this.$location.path('/home');
     }
