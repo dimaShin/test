@@ -2,8 +2,11 @@
 
   <test-user-form></test-user-form>
 
-  <test-users-table></test-users-table>
+  <div  ng-if="HCtrl.users.length">
+    <test-users-table></test-users-table>
+    <test-users-filter></test-users-filter>
+  </div>
 
-  <test-users-filter></test-users-filter>
+
 
 </div>

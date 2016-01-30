@@ -1,4 +1,30 @@
-.form-horizontal>*.form-group {
-  float: left;
-  margin: 0 5px;
+$md-form-direction: row;
+$sm-form-direction: column;
+
+@media (min-width: 800px) {
+  .user-form-container form {
+    display: flex;
+    flex-direction: $md-form-direction;
+  }
+}
+@media (max-width: 799px) {
+  .user-form-container form {
+    display: flex;
+    flex-direction: $sm-form-direction;
+  }
+}
+
+.user-form-container {
+  margin-bottom: 20px;
+}
+.user-form-container form .checkboxes {
+  display: flex;
+  flex-direction: row;
+}
+.user-form-container form .form-group:not(:first-child) {
+  margin: 0 10px;
+}
+
+.btn-wide {
+  min-width: 100px;
 }

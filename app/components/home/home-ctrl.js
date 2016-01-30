@@ -4,6 +4,9 @@ class HomeCtrl {
   static $inject = ['$injector'];
 
   constructor($injector) {
+    "use strict";
+    const Users = $injector.get('Users');
+    this.users = Users.get();
   }
 }
 

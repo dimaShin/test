@@ -1,33 +1,36 @@
-<div class="user-worm-container">
-
+<div class="user-form-container">
+  <div>
+    <h4>Add new person</h4>
+  </div>
   <form name="UFCtrl.form"
-        ng-submit="UFCtrl.onSubmit($event)"
-        class="form-horizontal">
+        ng-submit="UFCtrl.onSubmit($event)">
 
     <div class="form-group">
-      <label for="name">Name</label>
       <input class="form-controller"
              type="text"
              id="name"
              name="name"
+             placeholder="name"
              ng-model="UFCtrl.user.name"
              required
              ng-model-options="{updateOn: 'blur'}"
       />
     </div>
 
-    <div class="form-group"
-         ng-repeat="role in UFCtrl.ROLES track by role.key">
-      <label for="{{role.key}}" ng-bind="role.title"></label>
-      <input type="checkbox"
-             id="{{role.key}}"
-             class="form-control"
-             ng-model="UFCtrl.user.roles[role.key]"
-       />
+    <div class="checkboxes">
+      <div class="form-group"
+           ng-repeat="role in UFCtrl.ROLES track by role.key">
+        <input type="checkbox"
+               id="{{role.key}}"
+               class="form-control"
+               ng-model="UFCtrl.user.roles[role.key]"
+          />
+        <label for="{{role.key}}" ng-bind="role.title"></label>
+      </div>
     </div>
 
     <div class="form-group">
-      <button type="submit">Ok</button>
+      <button type="submit" class="btn-wide">Add</button>
     </div>
 
   </form>
