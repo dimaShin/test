@@ -1,0 +1,32 @@
+$md-width: 800px;
+$sidebar-width: 200px;
+
+@media (min-width: 800px) {
+  .root-container {
+    width: $md-width;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 799px) {
+  .root-container {
+    width: 100vw;
+  }
+}
+
+.root-container {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+}
+.root-container > * {
+  float: left;
+}
+
+.sidebar-container {
+  width: $sidebar-width;
+  padding-left: 15px;
+}
+
+.view-container {
+  width: calc(100% - #{$sidebar-width});
+}

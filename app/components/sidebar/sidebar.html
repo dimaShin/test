@@ -1,0 +1,17 @@
+<div class="sidebar-header">
+  <h4>Sidebar</h4>
+</div>
+<ul class="sidebar-items">
+  <li class="bigger">
+    <a href="/home">
+      <span>Total</span>
+      <span ng-bind="SBCtrl.users.length"></span>
+    </a>
+  </li>
+  <li ng-repeat="role in SBCtrl.ROLES track by role.key">
+    <a href="/{{role.key}}">
+      <span ng-bind="role.title"></span>
+      <span ng-bind="SBCtrl.users | roleLength : role.key "></span>
+    </a>
+  </li>
+</ul>
