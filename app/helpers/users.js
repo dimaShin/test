@@ -14,6 +14,18 @@ class UsersService {
     return this._users;
   }
 
+  getQuantityByRole(role) {
+    "use strict";
+    if (!role) {
+      return this._users.length;
+    }
+
+    return this._users.filter(user => {
+      return user.roles[role];
+    }).length;
+
+  }
+
   add(user) {
     if (!user.id) {
       user.id = Math.ceil(Math.random() * 10e5);

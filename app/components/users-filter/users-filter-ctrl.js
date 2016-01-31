@@ -6,6 +6,7 @@ class UsersFilterCtrl {
   constructor($injector, $scope) {
     this.ROLES = $injector.get('ROLES');
     this.$location = $injector.get('$location');
+    this.Users = $injector.get('Users');
   }
 
   isActive(role) {

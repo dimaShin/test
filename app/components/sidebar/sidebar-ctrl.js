@@ -8,9 +8,9 @@ class SidebarCtrl {
 
   constructor ($injector) {
     "use strict";
-    const Users = $injector.get('Users');
+    this.Users = $injector.get('Users');
     this.ROLES = $injector.get('ROLES');
-    this.users = Users.get();
+    //this.users = this.Users.get();
   }
 }
 

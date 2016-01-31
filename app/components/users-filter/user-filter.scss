@@ -14,5 +14,12 @@ ul.user-filter>li {
 }
 .user-filter li.active a {
   cursor: not-allowed;
-  color: grey;
+  color: blue;
+  font-weight: 600;
+}
+.user-filter a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #ccc;
+  text-underline: none;
 }
