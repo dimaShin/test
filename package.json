@@ -1,8 +1,6 @@
 {
   "scripts": {
     "start": "webpack-dev-server --content-base build/ --history-api-fallback",
-    "build": "webpack --colors --progress",
-    "build:watch": "webpack --watch --colors --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Iashin Dmitriy",
