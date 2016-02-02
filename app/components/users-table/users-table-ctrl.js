@@ -8,6 +8,8 @@ class UsersTableCtrl {
     this.UsersFilter = $injector.get('UsersFilter');
     this.ROLES = $injector.get('ROLES');
     this.users = this.Users.get(this.UsersFilter.get());
+    this.$filter = $injector.get('$filter');
+    this.$location = $injector.get('$location');
     this.order = {
       by: 'name',
       reverse: false
@@ -28,6 +30,9 @@ class UsersTableCtrl {
 
   deleteUser(user) {
     this.Users.delete(user);
+    if (this._wasLastUser()) {
+      this._goHome();
+    }
   }
 
   orderBy(by) {
@@ -38,7 +43,26 @@ class UsersTableCtrl {
       this.order.reverse = false;
       this.order.by = by;
     }
+  }
 
+  onUserChange() {
+    "use strict";
+    this.saveUsers();
+
+    if (this._wasLastUser()) {
+      this._goHome();
+    }
+  }
+
+  _wasLastUser() {
+    "use strict";
+    return !this.$filter('uFilter')(this.users).length;
+    return !this.$filter('uFilter')(this.users).length;
+  }
+
+  _goHome() {
+    "use strict";
+    this.$location.path('/home');
   }
 }
 
