@@ -57,7 +57,6 @@ class UsersTableCtrl {
   _wasLastUser() {
     "use strict";
     return !this.$filter('uFilter')(this.users).length;
-    return !this.$filter('uFilter')(this.users).length;
   }
 
   _goHome() {
